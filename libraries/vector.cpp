@@ -1,4 +1,5 @@
 #include "vector.h"
+#include <stdexcept>
 
 using namespace rsm;
 
@@ -80,7 +81,14 @@ void vector::clear()
     delete[] m_array;
     m_array = new int[1];
     m_size = 0;
-    m_capacity = 1;
+}
+
+void vector::shrink_to_fit(int index)
+{
+    if(index < m_capacity)
+    {
+        m_capacity = m_size;
+    }
 }
 
 void vector::push_back(int elementToPush)
@@ -128,10 +136,8 @@ int& vector::at(int index)
     {
         return m_array[index];
     }
-    else
-    {
-        throw "Index not in bounds.";
-    }
+
+    throw std::invalid_argument("Index out of bounds");
 }
 
 bool vector::empty() const

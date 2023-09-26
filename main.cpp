@@ -14,11 +14,11 @@ int main()
     vec.push_back(3000);
     vec.push_back(4000);
 
+    vec.resize(2);
 
     std::cout << "Capacity: " << vec.capacity() << std::endl;
     std::cout << "Size: " << vec.size() << std::endl;
 
-    std::cout << vec.at(10) << std::endl;
 
     return 0;
 }

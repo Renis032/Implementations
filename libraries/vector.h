@@ -27,7 +27,7 @@ public:
     void reserve(int capacityToReserve);
     void resize(int indexToResizeTo);
     void clear();
-    void shrink_to_fit(int index);
+    void shrink_to_fit();
 
     void push_back(int elementToPush);
     void pop_back();

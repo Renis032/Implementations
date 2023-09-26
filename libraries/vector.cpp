@@ -45,11 +45,13 @@ int &vector::operator [](int index)
 
 void vector::reserve(int capacityToReserve)
 {
+    //TODO:
     m_capacity = capacityToReserve;
 }
 
 void vector::resize(int indexToResizeTo)
 {
+    //TODO:
     while(m_capacity < indexToResizeTo)
     {
         m_capacity *= 2;
@@ -83,12 +85,20 @@ void vector::clear()
     m_size = 0;
 }
 
-void vector::shrink_to_fit(int index)
+void vector::shrink_to_fit()
 {
-    if(index < m_capacity)
+    //TODO:
+    m_capacity = m_size;
+
+    int* temp = new int[m_capacity];
+
+    for (size_t i = 0; i < m_size; i++)
     {
-        m_capacity = m_size;
+        temp[i] = m_array[i];
     }
+
+    delete[] m_array;
+    m_array = temp;
 }
 
 void vector::push_back(int elementToPush)

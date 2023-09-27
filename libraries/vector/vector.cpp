@@ -1,4 +1,5 @@
 #include "vector.h"
+#include <stdexcept>
 
 using namespace rsm;
 

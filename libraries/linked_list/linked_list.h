@@ -19,10 +19,10 @@ public:
     void prepend(int value);
     void insert(int index, int value);
 
-private:
     Node* head = nullptr;
+private:
     Node* tail = nullptr;
-    int length = 0;
+    int m_length = 0;
 };
 
 } // rms

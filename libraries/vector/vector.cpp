@@ -1,5 +1,4 @@
 #include "vector.h"
-#include <iostream>
 
 using namespace rsm;
 

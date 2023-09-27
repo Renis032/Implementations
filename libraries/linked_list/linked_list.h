@@ -14,6 +14,7 @@ class linked_list
 {
 public:
     linked_list(int value);
+    ~linked_list();
 
     void append(int value);
     void prepend(int value);

@@ -29,5 +29,8 @@ int main()
     }
 
     std::cout << "LENGTH: " << linkedList->length() << std::endl;
+
+    delete linkedList;
+
     return 0;
 }

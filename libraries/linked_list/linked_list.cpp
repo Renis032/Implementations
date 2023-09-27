@@ -6,19 +6,36 @@ linked_list::linked_list(int value)
 {
     Node* newNode = new Node(value);
     head = newNode;
+    tail = newNode;
     m_length = 1;
+}
+
+linked_list::~linked_list()
+{
+    Node* temp = head;
+    while(head)
+    {
+        head = temp->nextNode;
+        delete temp;
+        temp = head;
+    }
 }
 
 void linked_list::append(int value)
 {
-    Node* node = head;
-    while(node->nextNode != nullptr)
+    Node* newNode = new Node(value);
+
+    if(m_length == 0)
     {
-        node = node->nextNode;
+        head = newNode;
+        tail = newNode;
+    }
+    else
+    {
+        tail->nextNode = newNode;
+        tail = newNode;
     }
 
-    node->nextNode = new Node(value);
-    tail = node->nextNode;
     m_length++;
 }
 

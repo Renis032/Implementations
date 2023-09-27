@@ -2,17 +2,9 @@
 #include "libraries/linked_list/linked_list.h"
 #include <iostream>
 
-int main()
+void printListInfo(rsm::linked_list& linkedList)
 {
-    rms::linked_list* linkedList = new rms::linked_list(4);
-
-    linkedList->append(1);
-    linkedList->append(2);
-    linkedList->append(3);
-    linkedList->append(4);
-    linkedList->append(5);
-
-    auto head = linkedList->get_head();
+    auto head = linkedList.get_head();
     if(head != nullptr)
     {
         std::cout << "HEAD'S VALUE: " << head->value << std::endl;
@@ -28,7 +20,20 @@ int main()
         }
     }
 
-    std::cout << "LENGTH: " << linkedList->length() << std::endl;
+    std::cout << "LENGTH: " << linkedList.length() << std::endl;
+}
+
+int main()
+{
+    rsm::linked_list* linkedList = new rsm::linked_list(4);
+
+    linkedList->append(1);
+    linkedList->append(2);
+    linkedList->append(3);
+    linkedList->append(4);
+    linkedList->append(5);
+
+    printListInfo(*linkedList);
 
     delete linkedList;
 

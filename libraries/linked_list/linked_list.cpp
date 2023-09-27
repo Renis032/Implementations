@@ -1,6 +1,6 @@
 #include "linked_list.h"
 
-using namespace rms;
+using namespace rsm;
 
 linked_list::linked_list(int value)
 {

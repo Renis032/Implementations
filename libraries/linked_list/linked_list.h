@@ -1,4 +1,4 @@
-namespace rms
+namespace rsm
 {
 
 class Node

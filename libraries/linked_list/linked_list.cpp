@@ -31,3 +31,18 @@ void linked_list::insert(int index, int value)
 {
 
 }
+
+const int linked_list::length()
+{
+    return m_length;
+}
+
+auto linked_list::get_head() -> const Node*
+{
+    return head;
+}
+
+auto linked_list::get_tail() -> const Node*
+{
+    return tail;
+}

@@ -19,8 +19,13 @@ public:
     void prepend(int value);
     void insert(int index, int value);
 
-    Node* head = nullptr;
+    auto length() -> const int;
+
+    auto get_head() -> const Node*;
+    auto get_tail() -> const Node*;
+
 private:
+    Node* head = nullptr;
     Node* tail = nullptr;
     int m_length = 0;
 };

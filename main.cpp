@@ -12,17 +12,22 @@ int main()
     linkedList->append(4);
     linkedList->append(5);
 
-    auto head = linkedList->head;
+    auto head = linkedList->get_head();
     if(head != nullptr)
     {
         std::cout << "HEAD'S VALUE: " << head->value << std::endl;
-        auto tempNode = head;
-        while(tempNode->nextNode != nullptr)
+        auto tempNode = head->nextNode;
+        while(tempNode != nullptr)
         {
+            if(tempNode->nextNode == nullptr)
+            {
+                std::cout << "TAIL'S VALUE: ";
+            }
             std::cout << tempNode->value << std::endl;
             tempNode = tempNode->nextNode;
         }
     }
 
+    std::cout << "LENGTH: " << linkedList->length() << std::endl;
     return 0;
 }

@@ -1,5 +1,5 @@
 #include "vector.h"
-#include <stdexcept>
+#include <iostream>
 
 using namespace rsm;
 
@@ -46,12 +46,14 @@ int &vector::operator [](int index)
 void vector::reserve(int capacityToReserve)
 {
     //TODO:
+    //APPLY THE NEW CAPACITY
     m_capacity = capacityToReserve;
 }
 
 void vector::resize(int indexToResizeTo)
 {
     //TODO:
+    //APPLY THE NEW CAPACITY
     while(m_capacity < indexToResizeTo)
     {
         m_capacity *= 2;
@@ -87,7 +89,6 @@ void vector::clear()
 
 void vector::shrink_to_fit()
 {
-    //TODO:
     m_capacity = m_size;
 
     int* temp = new int[m_capacity];
@@ -103,6 +104,8 @@ void vector::shrink_to_fit()
 
 void vector::push_back(int elementToPush)
 {
+    //TODO:
+    // AFTER SHRINK TO FIT, WHAT HAPPENS WITH THE CAPACITY *2?
     if(m_size == m_capacity)
     {
         m_capacity *= 2;
@@ -123,6 +126,8 @@ void vector::push_back(int elementToPush)
 
 void vector::pop_back()
 {
+    //TODO:
+    // HANDLE STRANGE NUMBERS AFTER SHRINK
     m_size--;
     if(m_size <= m_capacity / 2)
     {

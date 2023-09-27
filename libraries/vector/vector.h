@@ -43,4 +43,5 @@ private:
     size_t m_capacity = 1;
     size_t m_size = 0;
 };
-}
+
+} // rms

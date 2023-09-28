@@ -1,6 +1,9 @@
 #include "vector.h"
 #include <stdexcept>
 
+#include <iostream>
+
+
 using namespace rsm;
 
 vector::vector()
@@ -11,6 +14,22 @@ vector::vector()
 vector::~vector()
 {
     delete[] m_array;
+}
+
+vector &vector::operator =(const vector &obj)
+{
+    m_size = obj.m_size;
+    m_capacity = obj.m_capacity;
+
+    delete [] m_array;
+    m_array = new int[m_capacity];
+
+    for(int idx = 0; idx < m_size; idx++)
+    {
+        m_array[idx] = obj.m_array[idx];
+    }
+
+    return *this;
 }
 
 bool vector::operator ==(const vector &obj)
@@ -43,20 +62,46 @@ int &vector::operator [](int index)
     return m_array[index];
 }
 
+int vector::front()
+{
+    if(m_size > 0)
+    {
+        return m_array[0];
+    }
+    return -1;
+}
+
+int vector::back()
+{
+    if(m_size > 0)
+    {
+        return m_array[m_size - 1];
+    }
+    return -1;
+}
+
 void vector::reserve(int capacityToReserve)
 {
-    //TODO:
-    //APPLY THE NEW CAPACITY
     m_capacity = capacityToReserve;
+    delete [] m_array;
+    m_array = new int[m_capacity];
 }
 
 void vector::resize(int indexToResizeTo)
 {
-    //TODO:
-    //APPLY THE NEW CAPACITY
-    while(m_capacity < indexToResizeTo)
+    if(m_capacity < indexToResizeTo)
     {
-        m_capacity *= 2;
+        while(m_capacity < indexToResizeTo)
+        {
+            m_capacity *= 2;
+        }
+    }
+    else if(m_size < m_capacity / 2)
+    {
+        while(m_size < m_capacity / 2)
+        {
+            m_capacity /= 2;
+        }
     }
 
     int* temp = new int[m_capacity];
@@ -71,10 +116,6 @@ void vector::resize(int indexToResizeTo)
     }
 
     m_size = indexToResizeTo;
-    while(m_size < m_capacity / 2)
-    {
-        m_capacity /= 2;
-    }
 
     delete[] m_array;
     m_array = temp;

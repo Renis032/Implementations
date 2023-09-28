@@ -9,6 +9,7 @@ public:
     vector();
     ~vector();
 
+    vector& operator =(vector const& obj);
     bool operator ==(vector const& obj);
     bool operator !=(vector const& obj);
     int& operator [](int index);
@@ -19,10 +20,10 @@ public:
     // move constructor
     // move assignment
     // swap between two vectors
-    // shrink to fit capacity = size -> new
-    // front
-    // back
     // erase
+
+    int front();
+    int back();
 
     void reserve(int capacityToReserve);
     void resize(int indexToResizeTo);

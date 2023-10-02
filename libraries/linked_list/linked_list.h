@@ -4,7 +4,7 @@ namespace rsm
 class Node
 {
 public:
-    Node(int value) : value(value){}
+    Node(int headValue) : value(headValue){}
 
     int value;
     Node* nextNode = nullptr;
@@ -20,14 +20,22 @@ public:
     void prepend(int value);
     void insert(int index, int value);
 
-    auto length() -> const int;
+    void reverse();
 
+    void delete_node(int index);
+    void delete_first();
+    void delete_last();
+
+    void set(int index, int value);
+    auto get(int index) -> Node*;
+
+    auto length() -> const int;
     auto get_head() -> const Node*;
     auto get_tail() -> const Node*;
 
 private:
-    Node* head = nullptr;
-    Node* tail = nullptr;
+    Node* m_head = nullptr;
+    Node* m_tail = nullptr;
     int m_length = 0;
 };
 

@@ -16,7 +16,6 @@ public:
 
     // TODO:
     // copy constuctor vec(vec)
-    // copy assignment =
     // move constructor
     // move assignment
     // swap between two vectors

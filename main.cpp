@@ -2,53 +2,39 @@
 #include "libraries/linked_list/linked_list.h"
 #include <iostream>
 
-//void printListInfo(rsm::linked_list& linkedList)
-//{
-//    auto head = linkedList.get_head();
-//    if(head != nullptr)
-//    {
-//        std::cout << "HEAD'S VALUE: " << head->value << std::endl;
-//        auto tempNode = head->nextNode;
-//        while(tempNode != nullptr)
-//        {
-//            if(tempNode->nextNode == nullptr)
-//            {
-//                std::cout << "TAIL'S VALUE: ";
-//            }
-//            std::cout << tempNode->value << std::endl;
-//            tempNode = tempNode->nextNode;
-//        }
-//    }
+void printListInfo(rsm::linked_list& linkedList)
+{
+    auto head = linkedList.get_head();
+    if(head != nullptr)
+    {
+        std::cout << "HEAD'S VALUE: " << head->value << std::endl;
 
-//    std::cout << "LENGTH: " << linkedList.length() << std::endl;
-//}
+        auto tail = linkedList.get_tail();
+        std::cout << "TAIL'S VALUE: " << tail->value << std::endl;
+        std::cout << "LENGTH: " << linkedList.length() << std::endl;
+
+        std::cout << "All linked list's values: "<< std::endl;
+        auto tempNode = head;
+        while(tempNode != nullptr)
+        {
+            std::cout << tempNode->value << std::endl;
+            tempNode = tempNode->nextNode;
+        }
+    }
+
+}
 
 int main()
 {
-    rsm::vector vec1;
+    rsm::linked_list linkedList1(1);
+    linkedList1.append(11);
+    linkedList1.append(111);
 
-    vec1.push_back(1);
-    vec1.push_back(1);
-    vec1.push_back(1);
-    vec1.push_back(1);
-    vec1.push_back(1);
-
-
-    rsm::vector vec2;
-
-    vec2.push_back(2);
-    vec2.push_back(2);
-    vec2.push_back(2);
-    vec2.push_back(2);
-    vec2.push_back(2);
-
-    vec1 = vec2;
-
-
-    for(int i = 0; i < vec1.size(); i++)
-    {
-        std::cout << vec1[i] << std::endl;
-    }
+    std::cout << "-----------------------------------" << std::endl;
+    std::cout << "First List: " << std::endl;
+    linkedList1.delete_first();
+    linkedList1.reverse();
+    printListInfo(linkedList1);
 
     return 0;
 }

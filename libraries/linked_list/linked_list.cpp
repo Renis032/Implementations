@@ -59,7 +59,7 @@ void linked_list::prepend(int value)
 
 void linked_list::insert(int index, int value)
 {
-    if(index < 0 || index >= m_length)
+    if(index < 0 || index > m_length)
     {
         throw std::invalid_argument("Index out of bounds");
         return;

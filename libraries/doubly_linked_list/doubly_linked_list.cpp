@@ -49,6 +49,34 @@ void doubly_linked_list::prepend(int value)
     m_length++;
 }
 
+void doubly_linked_list::insert(int index, int value)
+{
+    if(index < 0 || index > m_length)
+    {
+        throw std::invalid_argument("Index out of bounds");
+        return;
+    }
+    if(index == 0)
+    {
+        prepend(value);
+        return;
+    }
+    if(index == m_length)
+    {
+        append(value);
+        return;
+    }
+
+    Node* newNode = new Node(value);
+    Node* temp = get(index - 1);
+
+    newNode->prevNode = temp;
+    newNode->nextNode = temp->nextNode;
+    temp->nextNode = newNode;
+
+    m_length++;
+}
+
 void doubly_linked_list::delete_first()
 {
     if(m_length == 0)
@@ -68,6 +96,8 @@ void doubly_linked_list::delete_first()
 
         delete temp;
     }
+
+    m_length--;
 }
 
 void doubly_linked_list::delete_last()
@@ -91,6 +121,15 @@ void doubly_linked_list::delete_last()
     }
 
     m_length--;
+}
+
+void doubly_linked_list::set(int index, int value)
+{
+    Node* temp = get(index);
+    if(temp)
+    {
+        temp->value = value;
+    }
 }
 
 auto doubly_linked_list::get(int index) -> Node*

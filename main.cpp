@@ -29,8 +29,10 @@ int main()
     list.append(3);
     list.prepend(10);
 
-//    printListInfo(list);
+    list.insert(4, 55);
 
-    std::cout << list.get(0)->value << std::endl;
+    printListInfo(list);
+
+    std::cout << list.get(4)->prevNode->value << std::endl;
     return 0;
 }

@@ -77,6 +77,60 @@ void doubly_linked_list::insert(int index, int value)
     m_length++;
 }
 
+void doubly_linked_list::reverse()
+{
+    if(m_length == 0)
+    {
+        throw std::invalid_argument("Index out of bounds");
+        return;
+    }
+
+    Node* temp = m_head;
+    m_head = m_tail;
+    m_tail = temp;
+
+    Node* nextNode = temp->nextNode;
+    Node* prev = nullptr;
+
+    for(int index = 0; index < m_length; index++)
+    {
+        nextNode = temp->nextNode;
+        temp->nextNode = prev;
+        prev = temp;
+        temp = nextNode;
+        temp->prevNode = prev;
+    }
+}
+
+void doubly_linked_list::delete_node(int index)
+{
+    if(index < 0 || index >= m_length)
+    {
+        return;
+    }
+    if(index == 0)
+    {
+        delete_first();
+        return;
+    }
+    if(index == m_length - 1)
+    {
+        delete_last();
+        return;
+    }
+
+    Node* temp = get(index);
+    Node* prevNode = temp->prevNode;
+    Node* nextNode = temp->nextNode;
+
+    delete temp;
+
+    prevNode->nextNode = nextNode;
+    nextNode->prevNode = prevNode;
+
+    m_length--;
+}
+
 void doubly_linked_list::delete_first()
 {
     if(m_length == 0)

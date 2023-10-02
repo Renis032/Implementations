@@ -9,6 +9,15 @@ stack::stack(int value)
     m_height = 1;
 }
 
+void stack::push(int value)
+{
+    Node* newNode = new Node(value);
+    newNode->nextNode = m_top;
+    m_top = newNode;
+
+    m_height++;
+}
+
 auto stack::get_top() -> Node*
 {
     return m_top;

@@ -15,6 +15,8 @@ public:
 public:
     stack(int value);
 
+    void push(int value);
+
     auto get_top() -> Node*;
 
     auto height() -> const int;

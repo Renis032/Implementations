@@ -1,8 +1,7 @@
-#include "libraries/vector/vector.h"
-#include "libraries/linked_list/linked_list.h"
+#include "libraries/doubly_linked_list/doubly_linked_list.h"
 #include <iostream>
 
-void printListInfo(rsm::linked_list& linkedList)
+void printListInfo(rsm::doubly_linked_list& linkedList)
 {
     auto head = linkedList.get_head();
     if(head != nullptr)
@@ -21,20 +20,17 @@ void printListInfo(rsm::linked_list& linkedList)
             tempNode = tempNode->nextNode;
         }
     }
-
 }
 
 int main()
 {
-    rsm::linked_list linkedList1(1);
-    linkedList1.append(11);
-    linkedList1.append(111);
+    rsm::doubly_linked_list list(1);
+    list.append(2);
+    list.append(3);
+    list.prepend(10);
 
-    std::cout << "-----------------------------------" << std::endl;
-    std::cout << "First List: " << std::endl;
-    linkedList1.delete_first();
-    linkedList1.reverse();
-    printListInfo(linkedList1);
+//    printListInfo(list);
 
+    std::cout << list.get(0)->value << std::endl;
     return 0;
 }

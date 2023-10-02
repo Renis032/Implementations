@@ -133,7 +133,7 @@ void linked_list::delete_node(int index)
 
     prevNode->nextNode = currentNode->nextNode;
 
-    delete [] currentNode;
+    delete currentNode;
 
     m_length--;
 
@@ -154,7 +154,7 @@ void linked_list::delete_first()
     else
     {
         Node* temp = m_head->nextNode;
-        delete [] m_head;
+        delete m_head;
         m_head = temp;
     }
 
@@ -186,7 +186,7 @@ void linked_list::delete_last()
 
         m_tail = prev;
         m_tail->nextNode = nullptr;
-        delete [] temp;
+        delete temp;
     }
 
     m_length--;

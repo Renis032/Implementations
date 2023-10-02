@@ -4,7 +4,7 @@ namespace rsm
 class Node
 {
 public:
-    Node(int headValue) : value(headValue){}
+    Node(int value) : value(value){}
 
     int value;
     Node* nextNode = nullptr;
@@ -13,7 +13,7 @@ public:
 class linked_list
 {
 public:
-    linked_list(int value);
+    linked_list(int headValue);
     ~linked_list();
 
     void append(int value);

@@ -15,6 +15,13 @@ int main()
 {
     rsm::stack stack(4);
     stack.push(10);
+    stack.push(20);
+    stack.push(30);
+
+    stack.pop();
+    stack.pop();
+    stack.pop();
+    stack.pop();
 
     printStack(stack);
 

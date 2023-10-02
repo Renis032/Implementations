@@ -16,6 +16,7 @@ public:
     stack(int value);
 
     void push(int value);
+    void pop();
 
     auto get_top() -> Node*;
 

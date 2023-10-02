@@ -1,17 +1,18 @@
 namespace rsm
 {
 
-class Node
-{
-public:
-    Node(int value) : value(value){}
-
-    int value;
-    Node* nextNode = nullptr;
-};
-
 class linked_list
 {
+public:
+    class Node
+    {
+    public:
+        Node(int value) : value(value){}
+
+        int value;
+        Node* nextNode = nullptr;
+    };
+
 public:
     linked_list(int headValue);
     ~linked_list();

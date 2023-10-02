@@ -1,18 +1,19 @@
 namespace rsm
 {
 
-class Node
-{
-public:
-    Node(int value) : value(value){}
-
-    int value;
-    Node* nextNode = nullptr;
-    Node* prevNode = nullptr;
-};
-
 class doubly_linked_list
 {
+public:
+    class Node
+    {
+    public:
+        Node(int value) : value(value){}
+
+        int value;
+        Node* nextNode = nullptr;
+        Node* prevNode = nullptr;
+    };
+
 public:
     doubly_linked_list(int value);
 

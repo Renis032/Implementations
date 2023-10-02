@@ -1,7 +1,8 @@
+#include "libraries/linked_list/linked_list.h"
 #include "libraries/doubly_linked_list/doubly_linked_list.h"
 #include <iostream>
 
-void printListInfo(rsm::doubly_linked_list& linkedList)
+void printListInfo(rsm::linked_list& linkedList)
 {
     auto head = linkedList.get_head();
     if(nullptr == head)
@@ -27,15 +28,23 @@ void printListInfo(rsm::doubly_linked_list& linkedList)
 
 int main()
 {
-    rsm::doubly_linked_list list(1);
+//    rsm::doubly_linked_list list(1);
+//    list.append(2);
+//    list.append(3);
+//    list.prepend(10);
+
+//    list.delete_node(0);
+//    list.delete_node(0);
+//    list.delete_node(0);
+
+    rsm::linked_list list(1);
     list.append(2);
     list.append(3);
-    list.prepend(10);
-
-    list.delete_node(0);
-    list.delete_node(0);
-    list.delete_node(0);
-
+    list.append(4);
+    list.append(5);
+    list.append(6);
+    list.append(7);
+    list.reverse();
     printListInfo(list);
 
 //    std::cout << list.get(4)->prevNode->value << std::endl;

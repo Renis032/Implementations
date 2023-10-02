@@ -12,12 +12,16 @@ public:
         int value;
         Node* nextNode = nullptr;
     };
-
 public:
+    stack(int value);
+
+    auto get_top() -> Node*;
+
+    auto height() -> const int;
 
 private:
-    Node* top = nullptr;
-    int m_length = 0;
+    Node* m_top = nullptr;
+    int m_height = 0;
 };
 
 }

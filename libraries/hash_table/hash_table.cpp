@@ -25,6 +25,20 @@ auto hash_table::get_data_map() -> Node*
     return *m_dataMap;
 }
 
+auto hash_table::hash(const std::string& key) -> const int
+{
+    int hash = 0;
+
+    for(int idx = 0; idx < key.length(); ++idx)
+    {
+        int asciiValue = int(key[idx]);
+        hash = (hash + asciiValue * 23) % size();
+    }
+
+    return hash;
+}
+
+
 auto hash_table::size() -> const int
 {
     return m_size;

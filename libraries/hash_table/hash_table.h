@@ -19,6 +19,7 @@ public:
     void print_map();
 
     auto get_data_map() -> Node*;
+    auto hash(const std::string& key) -> const int;
     auto size() -> const int;
 
 private:

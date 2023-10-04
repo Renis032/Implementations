@@ -6,7 +6,8 @@ using namespace rsm;
 int main()
 {
     hash_table* hashTable = new hash_table();
-    hashTable->print_map();
+
+    std::cout << hashTable->hash("pentagon") << std::endl;
 
     return 0;
 }

@@ -39,4 +39,4 @@ private:
     int m_length = 0;
 };
 
-}
+} // end of namespace rsm

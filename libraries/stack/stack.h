@@ -27,4 +27,4 @@ private:
     int m_height = 0;
 };
 
-}
+} // end of namespace rsm

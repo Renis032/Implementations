@@ -1,29 +1,17 @@
-#include "libraries/stack/stack.h"
+#include "libraries/binary_search_tree/binary_search_tree.h"
 #include <iostream>
-
-void printStack(rsm::stack& stack)
-{
-    auto top = stack.get_top();
-    while(top)
-    {
-        std::cout << top->value << std::endl;
-        top = top->nextNode;
-    }
-}
 
 int main()
 {
-    rsm::stack stack(4);
-    stack.push(10);
-    stack.push(20);
-    stack.push(30);
+    rsm::binary_search_tree tree;
+    tree.insert(5);
+    tree.insert(3);
+    tree.insert(1);
+    tree.insert(7);
+    tree.insert(10);
+    tree.insert(11);
 
-    stack.pop();
-    stack.pop();
-    stack.pop();
-    stack.pop();
-
-    printStack(stack);
+    std::cout << tree.contains(2) << std::endl;
 
     return 0;
 }

@@ -1,6 +1,4 @@
 #include "binary_search_tree.h"
-#include <iostream>
-#include <ostream>
 
 using namespace rsm;
 
@@ -44,6 +42,34 @@ void binary_search_tree::insert(int value)
             temp = temp->right;
         }
     }
+}
+
+bool binary_search_tree::contains(int value)
+{
+    if(nullptr == m_root)
+    {
+        return false;
+    }
+
+    Node* temp = m_root;
+    while(temp)
+    {
+        if(value == temp->value)
+        {
+            return true;
+        }
+
+        if(value < temp->value)
+        {
+            temp = temp->left;
+        }
+        else if(value > temp->value)
+        {
+            temp = temp->right;
+        }
+    }
+
+    return false;
 }
 
 auto binary_search_tree::get_root() -> Node*

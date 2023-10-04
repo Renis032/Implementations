@@ -18,6 +18,7 @@ public:
     binary_search_tree();
 
     void insert(int value);
+    bool contains(int value);
 
     auto get_root() -> Node*;
 

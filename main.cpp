@@ -1,18 +1,17 @@
-#include "libraries/hash_table/hash_table.h"
+#include "libraries/vector/vector.h"
 #include <iostream>
 
 using namespace rsm;
 
 int main()
 {
-    hash_table* hashTable = new hash_table();
+    vector<std::string> vec1;
+    vec1.push_back("1");
 
-    hashTable->set("nails", 100);
-    hashTable->set("tile", 50);
-    hashTable->set("lumber", 80);
+    vector<std::string> vec2;
+    vec2.push_back("2");
 
-    std::cout << "Lumber: " << hashTable->value("lumber") << std::endl;
-    std::cout << "Something: " << hashTable->value("something") << std::endl;
+    std::cout << (vec1 == vec2) << std::endl;
 
     return 0;
 }

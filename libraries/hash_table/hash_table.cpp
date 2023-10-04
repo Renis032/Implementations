@@ -3,7 +3,7 @@
 
 using namespace rsm;
 
-void hash_table::print_map()
+void hash_table::print_table()
 {
     for(int i = 0; i < size(); i++)
     {
@@ -18,6 +18,40 @@ void hash_table::print_map()
             }
         }
     }
+}
+
+void hash_table::set(const std::string& key, int value)
+{
+    int index = hash(key);
+    Node* newNode = new Node(key, value);
+    if(nullptr == m_dataMap[index])
+    {
+        m_dataMap[index] = newNode;
+        return;
+    }
+
+    Node* temp = m_dataMap[index];
+    while(temp->nextNode != nullptr)
+    {
+        temp = temp->nextNode;
+    }
+    temp->nextNode = newNode;
+}
+
+auto hash_table::value(const std::string& key) -> const int
+{
+    int index = hash(key);
+    Node* temp = m_dataMap[index];
+    while(nullptr != temp)
+    {
+        if(temp->key == key)
+        {
+            return temp->value;
+        }
+        temp = temp->nextNode;
+    }
+
+    return -1;
 }
 
 auto hash_table::get_data_map() -> Node*

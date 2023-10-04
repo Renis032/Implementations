@@ -16,7 +16,10 @@ public:
         Node* nextNode = nullptr;
     };
 public:
-    void print_map();
+    void print_table();
+
+    void set(const std::string& key, int value);
+    auto value(const std::string& key) -> const int;
 
     auto get_data_map() -> Node*;
     auto hash(const std::string& key) -> const int;

@@ -10,8 +10,13 @@ int main()
 
     graph->addVertex("A");
     graph->addVertex("B");
+    graph->addVertex("C");
 
     graph->addEdge("A", "B");
+    graph->addEdge("A", "C");
+    graph->addEdge("B", "C");
+
+    graph->removeVertex("A");
 
     graph->printGraph();
     return 0;

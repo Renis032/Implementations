@@ -31,7 +31,7 @@ void hash_table::set(const std::string& key, int value)
     }
 
     Node* temp = m_dataMap[index];
-    while(temp->nextNode != nullptr)
+    while(nullptr != temp->nextNode)
     {
         temp = temp->nextNode;
     }
@@ -52,6 +52,22 @@ auto hash_table::value(const std::string& key) -> const int
     }
 
     return -1;
+}
+
+auto hash_table::keys() -> const vector<std::string>
+{
+    vector<std::string> allKeys;
+    for(int idx = 0; idx < m_size; idx++)
+    {
+        Node* temp = m_dataMap[idx];
+        while(nullptr != temp)
+        {
+            allKeys.push_back(temp->key);
+            temp = temp->nextNode;
+        }
+    }
+
+    return allKeys;
 }
 
 auto hash_table::get_data_map() -> Node*

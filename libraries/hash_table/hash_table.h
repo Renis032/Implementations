@@ -1,3 +1,5 @@
+#include "../vector/vector.h"
+
 #include <string>
 namespace rsm
 {
@@ -20,6 +22,8 @@ public:
 
     void set(const std::string& key, int value);
     auto value(const std::string& key) -> const int;
+
+    auto keys() -> const vector<std::string>;
 
     auto get_data_map() -> Node*;
     auto hash(const std::string& key) -> const int;

@@ -35,7 +35,7 @@ public:
     {
         if(m_height == 0)
         {
-            throw std::invalid_argument("No elements to pop");
+            throw std::out_of_range("No elements to pop");
         }
 
         Node* temp = m_top;

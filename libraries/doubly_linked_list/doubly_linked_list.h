@@ -66,7 +66,7 @@ public:
     {
         if(index < 0 || index > m_length)
         {
-            throw std::invalid_argument("Index out of bounds");
+            throw std::out_of_range("Index out of bounds");
             return;
         }
         if(index == 0)
@@ -94,7 +94,7 @@ public:
     {
         if(m_length == 0)
         {
-            throw std::invalid_argument("Index out of bounds");
+            throw std::out_of_range("Index out of bounds");
             return;
         }
 
@@ -202,7 +202,7 @@ public:
     {
         if(index < 0 || index >= m_length)
         {
-            throw std::invalid_argument("Index out of bounds");
+            throw std::out_of_range("Index out of bounds");
             return nullptr;
         }
 

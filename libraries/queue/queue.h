@@ -47,7 +47,7 @@ public:
     {
         if(m_length == 0)
         {
-            throw std::invalid_argument("No elements to dequeue");
+            throw std::out_of_range("No elements to dequeue");
         }
         if(m_length == 1)
         {

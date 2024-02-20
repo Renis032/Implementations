@@ -23,7 +23,7 @@ public:
         m_height = 1;
     }
 
-    void push(int value)
+    void push(T value)
     {
         Node* newNode = new Node(value);
         newNode->nextNode = m_top;

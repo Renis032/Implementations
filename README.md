@@ -1,1 +1,3 @@
 # Implementations
+This repository contains implementations of various data structures and algorithms in C++. Each implementation aims to provide a clear and efficient solution to common problems encountered in computer science and software engineering.
+The implementations provided in this repository serve as educational resources and practical examples for understanding and implementing fundamental concepts in computer science. Whether you're a student learning data structures and algorithms or a developer looking for efficient solutions to common problems, this repository can be a valuable resource.

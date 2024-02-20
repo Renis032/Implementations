@@ -17,6 +17,7 @@ public:
     };
 
 public:
+    queue();
     queue(T value)
     {
         Node* newNode = new Node(value);

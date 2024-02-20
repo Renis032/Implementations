@@ -1,26 +1,59 @@
+#include <stdexcept>
+
 namespace rsm
 {
 
+template <typename T>
 class stack
 {
 public:
     class Node
     {
     public:
-        Node(int value) : value(value){}
+        Node(T value) : value(value){}
 
-        int value;
+        T value;
         Node* nextNode = nullptr;
     };
 public:
-    stack(int value);
+    stack(T value)
+    {
+        Node* newNode = new Node(value);
+        m_top = newNode;
+        m_height = 1;
+    }
 
-    void push(int value);
-    void pop();
+    void push(int value)
+    {
+        Node* newNode = new Node(value);
+        newNode->nextNode = m_top;
+        m_top = newNode;
 
-    auto get_top() -> Node*;
+        m_height++;
+    }
+    void pop()
+    {
+        if(m_height == 0)
+        {
+            throw std::invalid_argument("No elements to pop");
+        }
 
-    auto height() -> const int;
+        Node* temp = m_top;
+        m_top = temp->nextNode;
+        delete temp;
+
+        m_height--;
+    }
+
+    auto get_top() -> Node*
+    {
+        return m_top;
+    }
+
+    auto height() -> const int
+    {
+        return m_height;
+    }
 
 private:
     Node* m_top = nullptr;

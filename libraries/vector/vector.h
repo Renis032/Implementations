@@ -77,7 +77,7 @@ public:
             return m_array[0];
         }
 
-        throw std::invalid_argument("Vector empty.");
+        throw std::out_of_range("Vector empty.");
     }
 
     T& back()
@@ -87,7 +87,7 @@ public:
             return m_array[m_size - 1];
         }
 
-        throw std::invalid_argument("Vector empty.");
+        throw std::out_of_range("Vector empty.");
     }
 
     void reserve(int capacityToReserve)
@@ -176,6 +176,11 @@ public:
     {
         //TODO:
         // HANDLE STRANGE NUMBERS AFTER SHRINK
+        if(m_size == 0)
+        {
+            return;
+        }
+
         m_size--;
         if(m_size <= m_capacity / 2)
         {
@@ -199,7 +204,7 @@ public:
             return m_array[index];
         }
 
-        throw std::invalid_argument("Index out of bounds");
+        throw std::out_of_range("Index out of bounds");
     }
 
     size_t size() const
@@ -223,4 +228,4 @@ private:
     size_t m_size = 0;
 };
 
-} // rms
+} // rsm

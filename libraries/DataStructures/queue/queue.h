@@ -6,18 +6,19 @@ namespace rsm
 template <typename T>
 class queue
 {
-public:
-    class Node
-    {
-    public:
-        Node(T value) : value(value){}
 
-        T value;
-        Node* nextNode = nullptr;
-    };
+private:
+struct Node
+{
+public:
+    Node(T value) : value(value){}
+
+    T value;
+    Node* nextNode = nullptr;
+};
 
 public:
-    queue();
+    queue() : m_first(nullptr), m_last(nullptr), m_length(0) {}
     queue(T value)
     {
         Node* newNode = new Node(value);
@@ -53,6 +54,7 @@ public:
         {
             m_first = nullptr;
             m_last = nullptr;
+            m_length--;
             return;
         }
 
@@ -61,6 +63,11 @@ public:
         delete firstNode;
 
         m_length--;
+    }
+
+    bool empty()
+    {
+        return m_length == 0;
     }
 
     auto get_first() -> Node*

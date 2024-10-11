@@ -118,6 +118,21 @@ bool containsBFS(const T& value)
     return false;
 }
 
+void invertTree(Node* node)
+{
+    if(nullptr == node)
+    {
+        return;
+    }
+
+    auto temp = node->left;
+    node->left = node->right;
+    node->right = temp;
+
+    invertTree(node->left);
+    invertTree(node->right);
+}
+
 void printDFS(Node* node) 
 {
     if(nullptr == node)

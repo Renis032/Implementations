@@ -11,9 +11,13 @@ int main()
     tree.insert(10);
     tree.insert(8);
 
-    tree.printDFS(tree.get_root());
-    std::cout << std::endl;
     tree.printBFS(tree.get_root());
 
+    std::cout << std::endl;
+    std::cout << std::endl;
+    std::cout << std::endl;
+    tree.invertTree(tree.get_root());
+    tree.printBFS(tree.get_root());
+    
     return 0;
 }

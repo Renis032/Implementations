@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run C++",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/implementations",  // Path to your compiled executable
+            "args": ["arg1", "arg2", "arg3"],  // Your program's arguments
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "MIMode": "gdb",
+            // "preLaunchTask": "CMake: Build",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "internalConsoleOptions": "neverOpen"  // Prevents internal console from opening
+        }
+    ]
+}

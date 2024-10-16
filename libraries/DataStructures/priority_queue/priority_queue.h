@@ -61,14 +61,57 @@ public:
         m_length++;
     }
 
+    void dequeue()
+    {
+        if(get_length() == 0)
+        {
+            return;
+        }
+
+        if(get_length() == 1)
+        {
+            m_head = nullptr;
+            m_tail = nullptr;
+            m_length--;
+            return;
+        }
+
+        Node* firstNode = get_head();
+        m_head = firstNode->nextNode;
+        delete firstNode;
+
+        m_length--;
+    }
+
     void print_queue()
     {
         Node* temp = m_head;
-        while (temp)
+        while(temp)
         {
             std::cout << "Value: " << temp->value << " Priority: " << temp->priority << std::endl;
             temp = temp->nextNode;
         }
+    }
+
+    
+    bool empty()
+    {
+        return m_length == 0;
+    }
+
+    auto get_head() -> Node*
+    {
+        return m_head;
+    }
+
+    auto get_tail() -> Node*
+    {
+        return m_tail;
+    }
+
+    auto get_length() -> const int
+    {
+        return m_length;
     }
 
 private:

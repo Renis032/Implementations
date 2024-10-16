@@ -31,7 +31,7 @@ public:
         m_length = 1;
     }
 
-    void push(T value, int priority)
+    void enqueue(T value, int priority)
     {
         Node* newNode = new Node(value, priority);
         newNode->priority = priority;

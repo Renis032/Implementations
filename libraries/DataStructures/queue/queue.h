@@ -18,12 +18,12 @@ public:
 };
 
 public:
-    queue() : m_first(nullptr), m_last(nullptr), m_length(0) {}
+    queue() : m_head(nullptr), m_tail(nullptr), m_length(0) {}
     queue(T value)
     {
         Node* newNode = new Node(value);
-        m_first = newNode;
-        m_last = newNode;
+        m_head = newNode;
+        m_tail = newNode;
         m_length = 1;
     }
 
@@ -32,13 +32,13 @@ public:
         Node* newNode = new Node(value);
         if(m_length == 0)
         {
-            m_first = newNode;
-            m_last = newNode;
+            m_head = newNode;
+            m_tail = newNode;
         }
         else
         {
-            m_last->nextNode = newNode;
-            m_last = newNode;
+            m_tail->nextNode = newNode;
+            m_tail = newNode;
         }
 
         m_length++;
@@ -52,14 +52,14 @@ public:
         }
         if(m_length == 1)
         {
-            m_first = nullptr;
-            m_last = nullptr;
+            m_head = nullptr;
+            m_tail = nullptr;
             m_length--;
             return;
         }
 
-        Node* firstNode = get_first();
-        m_first = firstNode->nextNode;
+        Node* firstNode = get_head();
+        m_head = firstNode->nextNode;
         delete firstNode;
 
         m_length--;
@@ -70,14 +70,14 @@ public:
         return m_length == 0;
     }
 
-    auto get_first() -> Node*
+    auto get_head() -> Node*
     {
-        return m_first;
+        return m_head;
     }
 
-    auto get_last() -> Node*
+    auto get_tail() -> Node*
     {
-        return m_last;
+        return m_tail;
     }
 
     auto get_length() -> const int
@@ -86,8 +86,8 @@ public:
     }
 
 private:
-    Node* m_first;
-    Node* m_last;
+    Node* m_head = nullptr;
+    Node* m_tail = nullptr;
     int m_length = 0;
 };
 

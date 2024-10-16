@@ -6,16 +6,16 @@ namespace rsm
 template <typename T>
 class doubly_linked_list
 {
-public:
-    class Node
-    {
-    public:
-        Node(T value) : value(value){}
+private:
+class Node
+{
+private:
+    Node(T value) : value(value){}
 
-        T value;
-        Node* nextNode = nullptr;
-        Node* prevNode = nullptr;
-    };
+    T value;
+    Node* nextNode = nullptr;
+    Node* prevNode = nullptr;
+};
 
 public:
     doubly_linked_list(T value)

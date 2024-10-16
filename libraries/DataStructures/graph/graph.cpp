@@ -1,7 +1,8 @@
 #include"graph.h"
 #include <iostream>
 
-using namespace rsm;
+namespace rsm 
+{
 
 void graph::printGraph()
 {
@@ -59,3 +60,5 @@ void graph::removeEdge(std::string vertex1, std::string vertex2)
     m_adjList.at(vertex1).erase(vertex2);
     m_adjList.at(vertex2).erase(vertex1);
 }
+
+} // end of namespace rsm

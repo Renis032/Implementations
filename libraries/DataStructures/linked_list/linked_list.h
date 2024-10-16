@@ -6,15 +6,15 @@ namespace rsm
 template <typename T>
 class linked_list
 {
+private:
+class Node
+{
 public:
-    class Node
-    {
-    public:
-        Node(T value) : value(value){}
+    Node(T value) : value(value){}
 
-        T value;
-        Node* nextNode = nullptr;
-    };
+    T value;
+    Node* nextNode = nullptr;
+};
 
 public:
     linked_list(T headValue)

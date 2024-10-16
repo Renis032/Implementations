@@ -8,17 +8,18 @@ namespace rsm
 template <typename T>
 class hash_table
 {
+private:
+class Node
+{
 public:
-    class Node
-    {
-    public:
-        Node(std::string key, T value) : key(key)
-                                         , value(value){}
+    Node(std::string key, T value) : key(key)
+                                        , value(value){}
 
-        std::string key = "";
-        T value;
-        Node* nextNode = nullptr;
-    };
+    std::string key = "";
+    T value;
+    Node* nextNode = nullptr;
+};
+
 public:
     void print_table()
     {

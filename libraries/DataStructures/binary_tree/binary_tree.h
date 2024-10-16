@@ -8,10 +8,9 @@ template <typename T>
 class binary_tree
 {
 private:
-
 struct Node
 {
-public:
+private:
     Node(T value) : value(value){}
 
     Node* left = nullptr;
